@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Instant Estimate | Add Value Refresh</title>
-<meta name="description" content="Answer a few quick questions and get an instant estimate, PDF and timeline for a pre-sale refresh or full home renovation. Add Value Refresh — an Add Value Group company.">
+<meta name="description" content="Answer a few quick questions and get an instant estimate, PDF and timeline for a pre-sale property refresh before listing. Add Value Refresh — an Add Value Group company.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
   body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
 
   .bar{position:sticky;top:0;z-index:10;background:rgba(251,243,230,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .bar-in{max-width:760px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between}
@@ -37,7 +38,7 @@
   .progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--honey));transition:width .45s cubic-bezier(.4,0,.2,1)}
 
   .stage{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:3rem 24px 4rem;position:relative;z-index:1}
-  .card{max-width:680px;width:100%}
+  .card{max-width:760px;width:100%}
   .screen{display:none;animation:fade .45s ease}
   .screen.on{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -47,6 +48,25 @@
   .qs{color:var(--ink-soft);font-size:1.08rem;margin-bottom:1.8rem;max-width:48ch}
   .hl{position:relative;white-space:nowrap;z-index:1}
   .hl::after{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.05em;height:.4em;border-radius:.4em;z-index:-1;transform:rotate(-1.4deg);background:var(--honey);opacity:.5}
+
+  .intro-grid{display:grid;grid-template-columns:1fr .86fr;gap:1.35rem;align-items:stretch}
+  .intro-copy,.week-visual{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:1.6rem}
+  .intro-copy{display:flex;flex-direction:column;justify-content:center}
+  .intro-copy .q{font-size:clamp(2.8rem,7vw,5rem);margin-bottom:1rem;letter-spacing:-.045em}
+  .intro-copy .qs{margin-bottom:1.4rem}
+  .hero-start{width:100%;margin-top:.15rem}
+  .fit-note{font-weight:800;color:var(--ink-soft);font-size:.94rem;margin-top:1rem}
+  .week-lockup{font-family:var(--disp);font-weight:800;line-height:.82;color:var(--green-deep);display:flex;align-items:flex-end;gap:.35rem;margin:.1rem 0 1rem}
+  .week-lockup strong{font-size:6.7rem;letter-spacing:-.06em}
+  .week-lockup span{font-size:2.05rem;color:var(--ink);margin-bottom:.35rem}
+  .week-meter{height:12px;border-radius:999px;background:var(--cream-2);overflow:hidden;margin-bottom:1.1rem}
+  .week-meter span{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--green),var(--honey))}
+  .week-visual p{color:var(--ink-soft);font-weight:600;margin-bottom:1rem}
+  .mini-schedule{display:grid;gap:.65rem}
+  .mini-schedule div{display:grid;grid-template-columns:76px 1fr;gap:.75rem;align-items:center;background:var(--cream);border:1px solid var(--line);border-radius:15px;padding:.75rem .85rem}
+  .mini-schedule small{font-weight:900;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep)}
+  .mini-schedule b{font-family:var(--disp);font-size:1.02rem;display:block}
+  .mini-schedule span{font-size:.87rem;color:var(--ink-soft);font-weight:700}
 
   .choices{display:grid;gap:.85rem}
   .choices.two{grid-template-columns:1fr 1fr}
@@ -62,7 +82,11 @@
   .choice .ct{flex:1}
   .choice .ct b{display:block;font-family:var(--disp);font-weight:700;font-size:1.12rem;color:var(--ink)}
   .choice .ct small{color:var(--ink-soft);font-size:.9rem}
-  @media(max-width:520px){.choices.two{grid-template-columns:1fr}}
+  .referral-card{display:block;margin-top:.85rem;background:rgba(227,121,90,.08);border:1px solid rgba(227,121,90,.22);border-radius:18px;padding:1rem 1.15rem;color:var(--ink-soft)}
+  .referral-card b{display:block;font-family:var(--disp);font-size:1rem;color:var(--ink);margin-bottom:.15rem}
+  .referral-card a{font-weight:800;color:var(--green-deep)}
+  @media(max-width:720px){.intro-grid{grid-template-columns:1fr}.intro-copy,.week-visual{padding:1.25rem}.intro-copy .q{font-size:clamp(2.7rem,15vw,4rem)}}
+  @media(max-width:520px){.choices.two{grid-template-columns:1fr}.mini-schedule div{grid-template-columns:1fr}.week-lockup strong{font-size:5.5rem}.week-lockup span{font-size:1.75rem}}
 
   .fld{margin-bottom:1.1rem}
   .fld label{display:block;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.45rem}
@@ -86,15 +110,30 @@
   .result-box .tl{display:flex;align-items:center;gap:.55rem;font-weight:600}
   .result-box .tl b{font-family:var(--disp);color:var(--honey);font-size:1.2rem}
   .result-box hr{border:0;border-top:1px dashed var(--line-light);margin:1.5rem 0}
+  .result-plan{background:rgba(251,243,230,.07);border:1px solid rgba(251,243,230,.16);border-radius:18px;padding:1rem;margin:1.2rem 0}
+  .result-plan-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.75rem}
+  .result-plan-top span{font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,243,230,.68)}
+  .result-plan-top b{font-family:var(--disp);font-size:1.35rem;color:var(--honey)}
+  .result-meter{height:10px;background:rgba(251,243,230,.15);border-radius:999px;overflow:hidden;margin-bottom:.85rem}
+  .result-meter i{display:block;height:100%;width:25%;background:linear-gradient(90deg,var(--green),var(--honey));border-radius:999px}
+  .result-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+  .result-steps div{background:rgba(251,243,230,.07);border:1px solid rgba(251,243,230,.12);border-radius:13px;padding:.72rem}
+  .result-steps b{display:block;color:#fff;font-size:.9rem}
+  .result-steps small{display:block;color:rgba(251,243,230,.66);font-weight:700;margin-top:.15rem;line-height:1.35}
   .bd{list-style:none;font-size:.94rem}
   .bd li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;color:rgba(251,243,230,.85)}
   .bd li span:last-child{font-weight:700;color:#fff;white-space:nowrap}
   .res-actions{display:grid;gap:.7rem;margin-top:1.6rem}
   .res-actions .btn{width:100%}
+  .book-btn{justify-content:flex-start;text-align:left;padding:.75rem 1rem .75rem .8rem;border-radius:24px;min-height:76px}
+  .book-btn img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.65);flex:none}
+  .book-btn .book-copy{display:flex;flex-direction:column;line-height:1.18;flex:1}
+  .book-btn .book-copy small{font-size:.84rem;font-weight:600;color:rgba(255,255,255,.84);margin-top:.2rem}
   .btn-honey{background:var(--honey);color:var(--ink)}
   .btn-honey:hover{background:var(--honey-deep);transform:translateY(-2px)}
   .sent{background:rgba(47,158,124,.18);border:1px solid rgba(47,158,124,.5);border-radius:14px;padding:.9rem 1.1rem;margin-top:1.3rem;font-weight:600;font-size:.95rem;color:#bdebd9;display:flex;gap:.6rem;align-items:flex-start}
   .disclaimer{font-size:.78rem;color:rgba(251,243,230,.55);margin-top:1.2rem;line-height:1.5}
+  @media(max-width:620px){.result-steps{grid-template-columns:1fr}.result-plan-top{align-items:flex-start;flex-direction:column;gap:.25rem}.book-btn{align-items:center}.book-btn img{width:48px;height:48px}}
 
   footer{padding:1.6rem 24px;text-align:center;font-size:.8rem;color:var(--ink-soft);position:relative;z-index:1}
 </style>
@@ -116,12 +155,28 @@
 
     <!-- 1. TYPE -->
     <section class="screen on" data-id="type">
-      <span class="step-tag">Let's begin</span>
-      <h2 class="q">What are you <span class="hl">planning?</span></h2>
-      <p class="qs">Pick the one that sounds most like you — you can change details as we go.</p>
-      <div class="choices">
-        <button class="choice" data-key="type" data-val="refresh"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><rect x="10" y="13" width="4" height="6"/></svg></span><span class="ct"><b>A quick pre-sale refresh</b><small>Freshen it up fast before it goes on the market</small></span></button>
-        <button class="choice" data-key="type" data-val="full"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8.5 4.5L12 12 3.5 7.5z"/><path d="M3.5 12L12 16.5 20.5 12"/><path d="M3.5 16.5L12 21l8.5-4.5"/></svg></span><span class="ct"><b>A full home renovation</b><small>A bigger transformation — new kitchen, bathrooms, layout</small></span></button>
+      <div class="intro-grid">
+        <div class="intro-copy">
+          <span class="step-tag">Pre-sale refresh</span>
+          <h2 class="q">1 Week <span class="hl">Fresh.</span></h2>
+          <p class="qs">A focused refresh for homes going on the market. Tidy the paint, lift the kitchen and bathroom, fix the obvious defects, then get ready for photos.</p>
+          <button class="btn btn-green hero-start" data-key="type" data-val="refresh">Start my 1 week estimate <span class="arrow">→</span></button>
+          <p class="fit-note">Best for homes that need to look better, not be rebuilt.</p>
+        </div>
+        <div class="week-visual">
+          <div class="week-lockup"><strong>1</strong><span>week</span></div>
+          <div class="week-meter"><span></span></div>
+          <p>Small, practical, buyer-facing work. No layout changes. No big renovation delay.</p>
+          <div class="mini-schedule">
+            <div><small>Day 1</small><p><b>Scope and prep</b><span>Confirm the work and protect the home.</span></p></div>
+            <div><small>Days 2-3</small><p><b>Paint and repairs</b><span>Patch, touch up and tidy what buyers see.</span></p></div>
+            <div><small>Days 4-5</small><p><b>Kitchen, bath and fit-off</b><span>Small upgrades that lift the feel fast.</span></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="referral-card">
+        <b>Planning a full renovation?</b>
+        This is not the right estimator for that. <a href="https://addvaluerenovations.co.nz/">Visit Add Value Renovations</a> for larger renovation work.
       </div>
     </section>
 
@@ -265,16 +320,29 @@
     <!-- ===== RESULT ===== -->
     <section class="screen" data-id="result">
       <span class="step-tag">Your estimate</span>
-      <h2 class="q" style="margin-bottom:1.3rem">Here's your <span class="hl">ballpark.</span></h2>
+      <h2 class="q" style="margin-bottom:1.3rem">Here's your <span class="hl">refresh plan.</span></h2>
       <div class="result-box">
         <span class="lab" id="rLab">Quick refresh estimate</span>
         <div class="big"><span id="rLo">$0</span> <span class="to">–</span> <span id="rHi">$0</span></div>
         <div class="tl"><span>Timeline:</span> <b id="rTime">—</b></div>
+        <div class="result-plan">
+          <div class="result-plan-top"><span>Market-ready path</span><b id="rPlanLabel">1 Week Fresh</b></div>
+          <div class="result-meter"><i id="rPlanFill"></i></div>
+          <div class="result-steps">
+            <div><b>1. Confirm scope</b><small>Simon checks condition and access.</small></div>
+            <div><b>2. Refresh what sells</b><small>Paint, repairs, kitchen and bathroom items.</small></div>
+            <div><b>3. Ready for photos</b><small>Final tidy before listing.</small></div>
+          </div>
+        </div>
         <hr>
         <ul class="bd" id="rBd"></ul>
         <div class="res-actions">
           <button class="btn btn-honey" id="rPdf">Download my PDF estimate</button>
-          <button class="btn btn-green" id="rBook">Book my free walk-through <span class="arrow">→</span></button>
+          <button class="btn btn-green book-btn" id="rBook">
+            <img src="https://addvaluerenovations.co.nz/wp-content/uploads/Image_20260307111538_46_614.png" alt="Simon Liu">
+            <span class="book-copy"><b>Book your walk-through with Simon</b><small>He checks condition and confirms the final scope.</small></span>
+            <span class="arrow">→</span>
+          </button>
         </div>
         <div class="sent" id="rSent" style="display:none"><span id="rSentTxt">A copy is on its way to your inbox.</span></div>
         <p class="disclaimer">Indicative only — a ballpark for Auckland in 2026 based on what you told us. Final price depends on condition, access and finish, and is confirmed in writing after a free on-site walk-through.</p>
@@ -332,13 +400,15 @@ function show(i){
   if(id==='result') renderResult();
 }
 
-document.querySelectorAll('.choice').forEach(c=>{
+document.querySelectorAll('[data-key][data-val]').forEach(c=>{
   c.addEventListener('click',()=>{
     const k=c.dataset.key, v=c.dataset.val;
     S[k]=v;
     const grp=c.closest('.choices');
-    grp.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));
-    c.classList.add('sel');
+    if(grp){
+      grp.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));
+      c.classList.add('sel');
+    }
     if(k==='type'){ flow = v==='full'?FULL_FLOW:REFRESH_FLOW; }
     setTimeout(()=>show(idx+1),230);
   });
@@ -366,14 +436,14 @@ function compute(){
     const nb=+S.fbaths; if(nb>0){lo+=18000*nb;hi+=28000*nb;days+=8*nb;items.push([nb+"× new bathroom",18000*nb,28000*nb]);}
     const ea=+S.ext; if(ea>0){lo+=ea*3500;hi+=ea*5500;days+=ea*0.8;items.push(["Extension — ~"+ea+" m²",ea*3500,ea*5500]);}
     const wLo=Math.max(3,Math.round(days/5*0.85)), wHi=Math.round(days/5*1.2);
-    return {lo,hi,items,time:"≈ "+wLo+"–"+wHi+" weeks",type:"Full home renovation"};
+    return {lo,hi,items,time:"≈ "+wLo+"–"+wHi+" weeks",type:"Full home renovation",days};
   } else {
     for(const k of ['kitchen','bathroom','interior','exterior','repairs']){
       const v=S[k]; if(v!=='none'){ const d=REFRESH[k][v]; lo+=d[0];hi+=d[1];days+=d[2]; items.push([LBL[k][v],d[0],d[1]]); }
     }
     let time = days<=0?"—":(days<=5&&items.length<=1)?(days+" working days"):
       ("≈ "+Math.min(4,Math.max(1,Math.ceil(days/5)))+" week"+(Math.ceil(days/5)>1?"s":"")+", phased");
-    return {lo,hi,items,time,type:"Quick pre-sale refresh"};
+    return {lo,hi,items,time,type:"Quick pre-sale refresh",days};
   }
 }
 
@@ -383,6 +453,9 @@ function renderResult(){
   $('#rLab').textContent = EST.type==='Full home renovation'?"Full renovation estimate":"Quick refresh estimate";
   $('#rLo').textContent=fmt(EST.lo); $('#rHi').textContent=fmt(EST.hi);
   $('#rTime').textContent=EST.time;
+  const weeks = Math.min(4, Math.max(1, Math.ceil((EST.days||5)/5)));
+  $('#rPlanLabel').textContent = weeks<=1 ? "1 Week Fresh" : "1-"+weeks+" Week Refresh";
+  $('#rPlanFill').style.width = (weeks/4*100)+"%";
   $('#rBd').innerHTML = EST.items.length? EST.items.map(i=>"<li><span>"+i[0]+"</span><span>"+fmt(i[1])+"–"+fmt(i[2])+"</span></li>").join('')
     : '<li><span>Nothing selected</span><span>$0</span></li>';
   sendEstimate();
